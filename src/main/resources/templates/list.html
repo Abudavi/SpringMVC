@@ -11,7 +11,7 @@
     <h1 th:text="${title}"></h1>
     <div th:if="${users.isEmpty()}">No tiene usuarios</div>
 
-    <table>
+    <table th:if="${!users.isEmpty()}">
         <thead>
             <tr>
                 <th>Name</th>
