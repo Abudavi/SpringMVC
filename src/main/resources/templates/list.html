@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 
 <head>
     <meta charset="UTF-8">
@@ -9,7 +9,28 @@
 
 <body>
     <h1 th:text="${title}"></h1>
-    <div th:if="${users.size()==0}">No tiene usuarios</div>
+    <div th:if="${users.isEmpty()}">No tiene usuarios</div>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Lastname</th>
+                <th>Email</th>
+
+            </tr>
+        </thead>
+        <tbody>
+            <tr th:each="user : ${users}">
+                <th th:text="${user.name}"></th>
+                <th th:text="${user.lastname}"></th>
+                <th th:if="${user.email !=null}" th:text="${user.email}"></th>
+                <th th:if="${user.email==null}" th:text="${'No tiene email'}"></th>
+            </tr>
+        </tbody>
+
+    </table>
+
 </body>
 
 </html>
