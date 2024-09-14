@@ -9,10 +9,12 @@
 
 <body>
     <h1 th:text="${title}"></h1>
-    <li>
-        <ul th:text="${user.name}"></ul>
-        <ul th:text="${user.lastname}"></ul>
-    </li>
+    <ul>
+        <li th:text="${user.name}"></li>
+        <li th:text="${user.lastname}"></li>
+        <li th:if="${user.email!=null}" th:text="${user.email}"></li>
+        <li th:if="${user.email == null }" th:text="${'no tiene email'}"></li>
+    </ul>
 </body>
 
 </html>
