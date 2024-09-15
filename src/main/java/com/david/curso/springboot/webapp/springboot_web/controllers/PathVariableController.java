@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestParam;
 
 @RestController
 @RequestMapping("/api/var")
@@ -48,6 +49,17 @@ public class PathVariableController {
 
         user.setName(user.getName().toUpperCase());
         return user;
+    }
+
+    @GetMapping("/values")
+    public Map<String, Object> values() {
+        Map<String, Object> json = new HashMap<>();
+        json.put("username", username);
+        json.put("code", code);
+        json.put("listOfValues", listOfValues);
+
+        return json;
+
     }
 
 }
