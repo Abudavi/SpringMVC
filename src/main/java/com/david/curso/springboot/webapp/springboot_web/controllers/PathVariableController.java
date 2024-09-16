@@ -9,7 +9,9 @@ import com.david.curso.springboot.webapp.springboot_web.models.dto.ParamDto;
 import java.util.HashMap;
 import java.util.Map;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.core.env.Environment;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -37,6 +39,9 @@ public class PathVariableController {
 
     @Value("#{${config.valueMap}.price}")
     private String price;
+
+    @Autowired
+    private Environment environment;
 
     @GetMapping("/baz/{message}")
     public ParamDto bar(@PathVariable String message) {
@@ -69,6 +74,9 @@ public class PathVariableController {
         json.put("valuesMap", valuesMap);
         json.put("product", product);
         json.put("price", price);
+        json.put("message", message);
+        json.put("message", environment.getProperty("config.message"));
+        json.put("code2", environment.getProperty("config.code", Long.class));
         return json;
 
     }
