@@ -8,7 +8,10 @@ public class HomeController {
 
     @GetMapping({ "", "/", "/home" })
     public String home() {
-        return "redirect:/details";
+        return "forward:/details";// se puede con forward que va a mantener los valores https ejmplo
+                                  // localhost/home a localhost/home
+                                  // redirect redirige y cambia la ruta https ejemplo localhost/home a
+                                  // localhost/details
     }
 
 }
