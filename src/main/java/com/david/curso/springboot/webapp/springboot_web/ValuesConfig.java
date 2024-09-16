@@ -6,7 +6,8 @@ import org.springframework.context.annotation.PropertySources;
 
 @Configuration
 @PropertySources({
-        @PropertySource("classpath:values.properties") // configuracion para que agarre la configuracion perzonalizada
+        @PropertySource(value = "classpath:values.properties", encoding = "UTF-8") // configuracion para que agarre la
+                                                                                   // configuracion perzonalizada
 })
 public class ValuesConfig {
 
