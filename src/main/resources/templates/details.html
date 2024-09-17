@@ -15,6 +15,8 @@
         <li th:if="${user.email!=null}" th:text="${user.email}"></li>
         <li th:if="${user.email == null }" th:text="${'no tiene email'}"></li>
     </ul>
+    <a th:href="@{/list}">Listado</a>
+    <a th:href="@{/api/params/foo?mensaje=+ hola}">Ver listado</a>
 </body>
 
 </html>
